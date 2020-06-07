@@ -25,7 +25,7 @@ const App = () => {
 
   const noResult = () => (
     <div className="no_result">
-      <h3>No item match your search {search}</h3>
+      <h3>No item match your search</h3>
     </div>
   );
 
@@ -305,6 +305,7 @@ const App = () => {
               <li>512GB</li>
             </ul>
           </div>
+          <a href="#/" className="button">Load new data</a>
         </div>
       </section>
     </>
@@ -315,7 +316,9 @@ const App = () => {
       <div className="card_item">
         {isLoading
           ? loader()
-          : data.docs && data.docs.map((phone) => cardPhone(phone))}
+          : data.docs && !data.docs.length
+          ? noResult()
+          : data.docs.map((phone) => cardPhone(phone))}
       </div>
     </section>
   );
