@@ -12,9 +12,8 @@ import Footer from "./Footer";
 import "nouislider/distribute/nouislider.css";
 import "./App.css";
 
-// const baseUrl = "https://back-phone.herokuapp.com/api/v1";
+const baseUrl = "https://back-phone.herokuapp.com/api/v1";
 
-const baseUrl = " http://localhost:5000/api/v1/";
 
 const App = () => {
   const [phoneData, setPhoneData] = useState([]);
