@@ -1,9 +1,9 @@
 import React from "react";
 
-
 const Main = (showSidebar, handelSearchInput, handleSearch) => (
   <section className="section_main">
     <div>
+      <div id="alert" className="alert">Database Update Successfully </div>
       <div className="title">
         <span className="openbtn" onClick={showSidebar}>
           ☰
@@ -30,6 +30,5 @@ const Main = (showSidebar, handelSearchInput, handleSearch) => (
     />
   </section>
 );
-
 
 export default Main;

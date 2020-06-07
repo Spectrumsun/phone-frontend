@@ -12,7 +12,9 @@ import Footer from "./Footer";
 import "nouislider/distribute/nouislider.css";
 import "./App.css";
 
-const baseUrl = "https://back-phone.herokuapp.com/api/v1/phones";
+// const baseUrl = "https://back-phone.herokuapp.com/api/v1";
+
+const baseUrl = " http://localhost:5000/api/v1/";
 
 const App = () => {
   const [phoneData, setPhoneData] = useState([]);
@@ -26,7 +28,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    const url = `${baseUrl}?type=buyer&page=1&limit=8`;
+    const url = `${baseUrl}/phones?type=buyer&page=1&limit=8`;
     fetchData(url);
   }, []);
 
@@ -60,7 +62,7 @@ const App = () => {
       "Buy Requests": "buyer",
       "Sell Requests": "seller",
     };
-    const url = `${baseUrl}?type=${list[textContent]}&page=1&limit=8&min=${sliderValue.min}&max=${sliderValue.max}&searchString=${search}`;
+    const url = `${baseUrl}/phones?type=${list[textContent]}&page=1&limit=8&min=${sliderValue.min}&max=${sliderValue.max}&searchString=${search}`;
     setIsLoading(true);
     fetchData(url);
     setSearch("");
@@ -77,7 +79,7 @@ const App = () => {
     const searchValue = input.value;
     if (searchValue !== "") {
       input.value = "";
-      const url = `${baseUrl}?type=${phoneRequest}&page=${currentPage}&limit=8&searchString=${search}`;
+      const url = `${baseUrl}/phones?type=${phoneRequest}&page=${currentPage}&limit=8&searchString=${search}`;
       setIsLoading(true);
       fetchData(url);
     }
@@ -86,6 +88,18 @@ const App = () => {
   const showSidebar = (e) => {
     const sidebar = document.querySelector(".section_side_bar");
     sidebar.classList.add("show_side_bar");
+  };
+
+  const handleUpdate = () => {
+    try {
+      const response = axios.get(`${baseUrl}/runseed`);
+      const alert = document.getElementById("alert");
+      alert.classList.add('successful')
+      setTimeout(() => alert.classList.remove('successful'), 3000)
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const loader = () => {
@@ -98,7 +112,7 @@ const App = () => {
 
   const handlePageClick = (data) => {
     const selected = data.selected + 1;
-    const url = `${baseUrl}?type=${phoneRequest}&page=${selected}&limit=8&min=${sliderValue.min}&max=${sliderValue.max}&searchString=${search}`;
+    const url = `${baseUrl}/phones?type=${phoneRequest}&page=${selected}&limit=8&min=${sliderValue.min}&max=${sliderValue.max}&searchString=${search}`;
     setCurrentPage(selected);
     fetchData(url);
   };
@@ -129,7 +143,7 @@ const App = () => {
   };
 
   const handleRangeSearch = () => {
-    const url = `${baseUrl}?type=${phoneRequest}&page=${currentPage}&limit=8&min=${sliderValue.min}&max=${sliderValue.max}`;
+    const url = `${baseUrl}/phones?type=${phoneRequest}&page=${currentPage}&limit=8&min=${sliderValue.min}&max=${sliderValue.max}`;
     setSearch("");
     setIsLoading(true);
     fetchData(url);
@@ -165,10 +179,7 @@ const App = () => {
               closeSideBar,
               sliderValue,
               Slider,
-              sliderValue,
-              handlePriceChange,
-              sliderValue,
-              handleRangeSearch
+              handleUpdate
             )}
         {cardHTML(phoneData)}
         {isLoading ? null : Pagination(phoneData, handlePageClick)}

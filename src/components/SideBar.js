@@ -6,6 +6,7 @@ const SideBar = (
   closeSideBar,
   sliderValue,
   Slider,
+  handleUpdate
 ) => (
   <>
     <section className="section_side_bar">
@@ -74,14 +75,13 @@ const SideBar = (
             <li>256GB</li>
             <li>512GB</li>
           </ul>
+          <a href="#/" onClick={handleUpdate} className="button load_phone">
+            Load iPhones
+          </a>
         </div>
-        <a href="#/" className="button">
-          Load new data
-        </a>
       </div>
     </section>
   </>
 );
-
 
 export default SideBar;
