@@ -15,6 +15,7 @@ import "./App.css";
 const baseUrl = "https://back-phone.herokuapp.com/api/v1";
 
 
+
 const App = () => {
   const [phoneData, setPhoneData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -89,9 +90,9 @@ const App = () => {
     sidebar.classList.add("show_side_bar");
   };
 
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     try {
-      const response = axios.get(`${baseUrl}/runseed`);
+      const response = await axios.get(`${baseUrl}/runseed`);
       const alert = document.getElementById("alert");
       alert.classList.add('successful')
       setTimeout(() => alert.classList.remove('successful'), 3000)
