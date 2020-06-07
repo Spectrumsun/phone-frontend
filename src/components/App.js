@@ -12,9 +12,7 @@ import Footer from "./Footer";
 import "nouislider/distribute/nouislider.css";
 import "./App.css";
 
-// const baseUrl = "https://back-phone.herokuapp.com/api/v1/phones";
-
-const baseUrl = "http://localhost:5000/api/v1/phones";
+const baseUrl = "https://back-phone.herokuapp.com/api/v1/phones";
 
 const App = () => {
   const [phoneData, setPhoneData] = useState([]);
@@ -52,7 +50,7 @@ const App = () => {
   const toggleType = (e) => {
     const { classList, textContent } = e.target;
     const listClassList = classList[1];
-    classList.add("active_type")
+    classList.add("active_type");
     if (listClassList === undefined) {
       const element = textContent === "Buy Requests" ? "sell" : "buy";
       const removeClass = document.getElementById(element);
