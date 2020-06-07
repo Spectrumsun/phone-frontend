@@ -1,7 +1,5 @@
-
-
 # Phone 
-A simple web application to search and buy phnes
+A simple web application to search and buy phones
 
 # View App
     * backend APi   https://back-phone.herokuapp.com/api/v1/
@@ -10,12 +8,12 @@ A simple web application to search and buy phnes
 
 # Technologies Used
    * Front-end: React/Redux
-   * Back-end: Node/Expressjs + MongoDb/Mongoose
+   * Back-end: Node/Expressjs + MongoDB/Mongoose
    * Libraries: ES6, Babel-CLI, eslint, express
 
 # Features
-   * A user view list of phone
-   * A user can search for phone based on user input text
+   * A user can view list of phones
+   * A user can search for a phone based on user input text
    * A user can search based on price filter
    * A user can toggle between buyers and sellers request
 
