@@ -95,8 +95,10 @@ const App = () => {
       const response = await axios.get(`${baseUrl}/runseed`);
       const alert = document.getElementById("alert");
       alert.classList.add('successful')
+      const url = `${baseUrl}/phones?type=buyer&page=1&limit=8`;
+      setIsLoading(true);
+      fetchData(url);
       setTimeout(() => alert.classList.remove('successful'), 3000)
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
