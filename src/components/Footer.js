@@ -4,7 +4,7 @@ const footer = () => (
   <section className="section_footer">
     <footer>
       <div className="details">
-        <h2>Eze Phones</h2>
+        <h2>Sun Phones</h2>
         <p>
           is simply dummy text of the printing and typesetting industry. Lorem
           Ipsum has been the industry's standard dummy text ever since the
@@ -22,6 +22,7 @@ const footer = () => (
         <p>Email: issimplydumm@unknow.com</p>
         <p>Tel: +001122334455</p>
         <p>Tel: +001122334455</p>
+        <p>GitHub: https://github.com/Spectrumsun </p>
         <p></p>
       </div>
     </footer>
